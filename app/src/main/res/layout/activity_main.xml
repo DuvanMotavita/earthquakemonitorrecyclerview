@@ -18,6 +18,15 @@
             android:layout_height="wrap_content"
             tools:itemCount="5"
             tools:listitem="@layout/eq_list_item"/>
-
+        <TextView
+            android:id="@+id/empty_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:visibility="gone"
+            android:text="@string/not_earthquakes_right_now"/>
     </FrameLayout>
 </layout>

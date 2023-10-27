@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.dm.earthquake_monitor.databinding.EqListItemBinding;
+
 public class EqAdapter extends ListAdapter<Earthquake,EqAdapter.EqViewHolder> {
 
     public static final DiffUtil.ItemCallback<Earthquake> DIFF_CALLBACK =
@@ -36,11 +38,19 @@ public class EqAdapter extends ListAdapter<Earthquake,EqAdapter.EqViewHolder> {
         super(DIFF_CALLBACK);
     }
 
+    private  OnItemClickListener onItemClickListener;
+
+    interface OnItemClickListener{
+        void onItemClick(Earthquake earthquake);
+    }
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener){
+        this.onItemClickListener = onItemClickListener;
+    }
     @NonNull
     @Override
     public EqAdapter.EqViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.eq_list_item,parent,false);
-        return new EqViewHolder(view);
+        EqListItemBinding binding = EqListItemBinding.inflate(LayoutInflater.from(parent.getContext()));//LayoutInflater.from(parent.getContext()).inflate(R.layout.eq_list_item,parent,false);
+        return new EqViewHolder(binding);
     }
 
     @Override
@@ -49,17 +59,19 @@ public class EqAdapter extends ListAdapter<Earthquake,EqAdapter.EqViewHolder> {
         holder.bind(earthquake);
     }
     class EqViewHolder extends RecyclerView.ViewHolder{
-        private TextView magnitudeText;
-        private TextView placeText;
+        private EqListItemBinding binding;
 
-        public EqViewHolder(@NonNull View itemView) {
-            super(itemView);
-            magnitudeText = itemView.findViewById(R.id.magnitude_text);
-            placeText = itemView.findViewById(R.id.place_text);
+        public EqViewHolder(@NonNull EqListItemBinding binding) {
+            super(binding.getRoot());
+            this.binding = binding;
         }
         public  void bind(Earthquake earthquake){
-            magnitudeText.setText(String.valueOf(earthquake.getMagnitude()));
-            placeText.setText(earthquake.getPlace());
+            binding.magnitudeText.setText(String.valueOf(earthquake.getMagnitude()));
+            binding.placeText.setText(earthquake.getPlace());
+            binding.getRoot().setOnClickListener(v->{
+                onItemClickListener.onItemClick(earthquake);
+            });
+            binding.executePendingBindings();
         }
     }
 }
