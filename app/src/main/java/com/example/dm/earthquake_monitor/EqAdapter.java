@@ -60,13 +60,12 @@ public class EqAdapter extends ListAdapter<Earthquake,EqAdapter.EqViewHolder> {
     }
     class EqViewHolder extends RecyclerView.ViewHolder{
         private EqListItemBinding binding;
-
         public EqViewHolder(@NonNull EqListItemBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
         }
         public  void bind(Earthquake earthquake){
-            binding.magnitudeText.setText(String.valueOf(earthquake.getMagnitude()));
+            binding.magnitudeText.setText(String.format("%.2f",earthquake.getMagnitude()));
             binding.placeText.setText(earthquake.getPlace());
             binding.getRoot().setOnClickListener(v->{
                 onItemClickListener.onItemClick(earthquake);

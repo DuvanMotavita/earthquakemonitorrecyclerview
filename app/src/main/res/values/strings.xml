@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">earthquake-monitor</string>
     <string name="not_earthquakes_right_now">Not Earthquakes right now</string>
+    <string name="magnitude_format">%.2f</string>
 </resources>
