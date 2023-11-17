@@ -1,25 +1,12 @@
-package com.example.dm.earthquake_monitor;
-
-import android.util.Log;
+package com.example.dm.earthquake_monitor.main;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.example.dm.earthquake_monitor.api.EarthquakeJSONResponse;
-import com.example.dm.earthquake_monitor.api.EqApiClient;
-import com.example.dm.earthquake_monitor.api.Feature;
+import com.example.dm.earthquake_monitor.Earthquake;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.ArrayList;
 import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class MainViewModel  extends ViewModel {
     private final MutableLiveData <List<Earthquake>> eqList = new MutableLiveData<List<Earthquake>>();

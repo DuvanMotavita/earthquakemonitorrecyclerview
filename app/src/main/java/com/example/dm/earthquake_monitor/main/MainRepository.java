@@ -1,7 +1,8 @@
-package com.example.dm.earthquake_monitor;
+package com.example.dm.earthquake_monitor.main;
 
 import android.util.Log;
 
+import com.example.dm.earthquake_monitor.Earthquake;
 import com.example.dm.earthquake_monitor.api.EarthquakeJSONResponse;
 import com.example.dm.earthquake_monitor.api.EqApiClient;
 import com.example.dm.earthquake_monitor.api.Feature;

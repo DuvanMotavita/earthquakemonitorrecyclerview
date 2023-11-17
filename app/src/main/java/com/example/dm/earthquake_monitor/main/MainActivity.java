@@ -1,4 +1,4 @@
-package com.example.dm.earthquake_monitor;
+package com.example.dm.earthquake_monitor.main;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
@@ -8,10 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.dm.earthquake_monitor.api.EqApiClient;
 import com.example.dm.earthquake_monitor.databinding.ActivityMainBinding;
-
-import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
