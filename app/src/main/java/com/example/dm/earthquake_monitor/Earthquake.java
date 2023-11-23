@@ -1,15 +1,23 @@
 package com.example.dm.earthquake_monitor;
 
+import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
 import java.util.Objects;
 
+@Entity(tableName = "earthquakes")
 public class Earthquake {
-
-    private String id;
-    private String place;
-    private double magnitude;
-    private long time;
-    private double latitude;
-    private double longitude;
+    @PrimaryKey//(autoGenerate = true)
+    @NonNull
+    private final String id;
+    //@ColumnInfo(name = "eq_place")
+    private final String place;
+    private final double magnitude;
+    private final long time;
+    private final double latitude;
+    private final double longitude;
 
     public Earthquake(String id, String place, double magnitude, long time, double latitude, double longitude) {
         this.id = id;
