@@ -1,5 +1,6 @@
 package com.example.dm.earthquake_monitor.database;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -16,7 +17,7 @@ public interface EqDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertAll(List<Earthquake> eqList);
     @Query("SELECT * FROM earthquakes")
-    List<Earthquake> getEarthQuakes();
+    LiveData<List<Earthquake>> getEarthQuakes();
 
     /*@Query("SELECT * FROM earthquakes WHERE magnitude > :myMagnitude ")
     List<Earthquake> getEarthQuakesWithMagnitudeAbove( double myMagnitude);

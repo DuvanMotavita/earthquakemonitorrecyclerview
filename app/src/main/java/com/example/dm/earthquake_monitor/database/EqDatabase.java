@@ -17,7 +17,7 @@ public abstract class EqDatabase extends RoomDatabase {
     public abstract EqDao eqDao();
 
     private static final int NUMBER_OF_THREADS = 4;
-    private static final ExecutorService databaseWriteExecutor = Executors.newFixedThreadPool(NUMBER_OF_THREADS);
+    public static final ExecutorService databaseWriteExecutor = Executors.newFixedThreadPool(NUMBER_OF_THREADS);
     private static volatile EqDatabase INSTANCE;
 
     public static EqDatabase getDatabase(final Context context){
